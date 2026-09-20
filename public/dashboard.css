@@ -1,0 +1,118 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f9ff;
+  color: #173e78;
+}
+button, input, select, textarea { font: inherit; }
+.hidden { display: none !important; }
+
+.topbar {
+  min-height: 74px;
+  background: white;
+  border-bottom: 1px solid #e5edf7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 5%;
+  gap: 20px;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img { width: 48px; height: 48px; object-fit: cover; border-radius: 50%; }
+.brand strong { display: block; color: #123b78; }
+.brand small { color: #8492a6; }
+.top-actions { display: flex; align-items: center; gap: 15px; color: #61728a; }
+
+.page { width: min(1200px, 92%); margin: 30px auto 60px; }
+.page-heading {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; margin-bottom: 24px;
+}
+.page-heading h1 { margin: 0 0 7px; color: #123b78; }
+.page-heading p { margin: 0; color: #718198; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.card {
+  background: white;
+  border: 1px solid #e2eaf5;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(30,70,120,.07);
+}
+.card .label { color: #7c8ba0; font-size: 13px; }
+.card .value { display: block; margin-top: 8px; font-size: 28px; color: #123b78; }
+
+.panel {
+  background: white;
+  border: 1px solid #e2eaf5;
+  border-radius: 15px;
+  padding: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 5px 20px rgba(30,70,120,.06);
+}
+.panel-heading {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 18px;
+}
+.panel-heading h2 { margin: 0; color: #123b78; font-size: 21px; }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.form-grid label { display: block; margin-bottom: 8px; font-weight: bold; }
+.full { grid-column: 1 / -1; }
+.control {
+  width: 100%; min-height: 48px; border: 1px solid #d6deea; border-radius: 10px;
+  padding: 10px 13px; outline: none; background: white;
+}
+textarea.control { min-height: 100px; resize: vertical; }
+.control:focus { border-color: #287cf0; box-shadow: 0 0 0 3px rgba(40,124,240,.1); }
+
+.btn {
+  border: 0; border-radius: 9px; padding: 11px 17px; cursor: pointer;
+  font-weight: bold;
+}
+.btn.primary { background: #287cf0; color: white; }
+.btn.primary:hover { background: #1768d5; }
+.btn.secondary { background: #edf4ff; color: #1c5da9; }
+.btn.danger { background: #fff0f0; color: #c0392b; }
+.btn.success { background: #eaf9f0; color: #16834b; }
+.btn.reject { background: #fff0f0; color: #c0392b; }
+.icon-btn { border: 0; background: transparent; cursor: pointer; color: #718198; font-size: 18px; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 760px; }
+th, td { text-align: left; padding: 13px 10px; border-bottom: 1px solid #edf1f7; vertical-align: top; }
+th { background: #f8fbff; color: #53667f; font-size: 13px; }
+td { color: #4f6077; font-size: 14px; }
+.status {
+  display: inline-block; padding: 6px 10px; border-radius: 20px;
+  font-size: 12px; font-weight: bold;
+}
+.status.Pending { background: #fff7dd; color: #9a6a00; }
+.status.Approved { background: #eaf9f0; color: #16834b; }
+.status.Rejected, .status.Cancelled { background: #fff0f0; color: #c0392b; }
+
+.actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.actions .btn { padding: 7px 10px; font-size: 12px; }
+.message { min-height: 22px; margin: 10px 0 0; font-weight: bold; }
+.message.error { color: #c0392b; }
+.message.success { color: #16834b; }
+.empty { text-align: center; padding: 30px; color: #8492a6; }
+
+@media (max-width: 850px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .topbar { padding: 12px 4%; }
+}
+@media (max-width: 600px) {
+  .page { width: 94%; margin-top: 20px; }
+  .page-heading { align-items: flex-start; flex-direction: column; }
+  .form-grid { grid-template-columns: 1fr; }
+  .full { grid-column: auto; }
+  .cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .top-actions #welcomeText { display: none; }
+}

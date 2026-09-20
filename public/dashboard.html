@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Leave Management System</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/dilogo.jpg" alt="Logo">
+      <div>
+        <strong>Leave Management System</strong>
+        <small id="roleText"></small>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span id="welcomeText"></span>
+      <button id="logoutBtn" class="btn danger">Logout</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <section id="userView" class="hidden">
+      <div class="page-heading">
+        <div>
+          <h1>Employee Dashboard</h1>
+          <p>Apply for leave and track your requests.</p>
+        </div>
+        <button id="showApplyBtn" class="btn primary">+ Apply Leave</button>
+      </div>
+
+      <div class="cards" id="balanceCards"></div>
+
+      <section id="applySection" class="panel hidden">
+        <div class="panel-heading">
+          <h2>Apply for Leave</h2>
+          <button id="closeApplyBtn" class="icon-btn">✕</button>
+        </div>
+
+        <form id="leaveForm" class="form-grid">
+          <div>
+            <label>Leave Type</label>
+            <select id="leaveType" class="control" required>
+              <option value="Annual">Annual Leave</option>
+              <option value="Sick">Sick Leave</option>
+              <option value="Casual">Casual Leave</option>
+            </select>
+          </div>
+          <div>
+            <label>Start Date</label>
+            <input id="startDate" class="control" type="date" required>
+          </div>
+          <div>
+            <label>End Date</label>
+            <input id="endDate" class="control" type="date" required>
+          </div>
+          <div class="full">
+            <label>Reason</label>
+            <textarea id="reason" class="control" placeholder="Enter reason for leave"></textarea>
+          </div>
+          <div class="full">
+            <button class="btn primary" type="submit">Submit Leave Application</button>
+          </div>
+        </form>
+        <p id="leaveMessage" class="message"></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>My Leave Requests</h2>
+          <button id="refreshBtn" class="btn secondary">Refresh</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th><th>Dates</th><th>Days</th><th>Reason</th><th>Status</th><th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="myLeaves"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <section id="adminView" class="hidden">
+      <div class="page-heading">
+        <div>
+          <h1>Admin Dashboard</h1>
+          <p>Review employee leave applications.</p>
+        </div>
+        <button id="adminRefreshBtn" class="btn secondary">Refresh</button>
+      </div>
+
+      <div class="cards" id="adminCards"></div>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>All Leave Requests</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Employee</th><th>Type</th><th>Dates</th><th>Days</th><th>Reason</th><th>Status</th><th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="allLeaves"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Employees</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Username</th><th>Email</th><th>Annual</th><th>Sick</th><th>Casual</th></tr>
+            </thead>
+            <tbody id="employees"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
